@@ -1,0 +1,14 @@
+# General project files
+*.properties
+bin/
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+bin
+.idea
+.DS_Store
+local.properties
+out/
