@@ -48,27 +48,27 @@ public class GlobalNav extends UiAutomatorTestCase {
     }
 
     public void clickSection(String sectionNameStr) throws UiObjectNotFoundException {
-        if (new UiObject(new UiSelector().text(sectionNameStr)).exists()) {
-            new UiObject(new UiSelector().text(sectionNameStr)).click();
+        if (new UiObject(new UiSelector().description(sectionNameStr)).exists()) {
+            new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
         } else {
 
             if (new UiScrollable(new UiSelector().scrollable(true)).exists()) {
                 UiScrollable scrollList = new UiScrollable(new UiSelector().scrollable(true));
 
-                boolean found = scrollList.scrollIntoView(new UiObject(new UiSelector().text(sectionNameStr)));
+                boolean found = scrollList.scrollIntoView(new UiObject(new UiSelector().description(sectionNameStr)));
 
                 if (!found) {
-                    found = scrollList.scrollIntoView(new UiObject(new UiSelector().text("Home")));
+                    found = scrollList.scrollIntoView(new UiObject(new UiSelector().description("Home")));
                     if (!found)
                         throw new UiObjectNotFoundException("CANNOT FIND OBJECT");
-                    new UiObject(new UiSelector().text("Home")).click();
+                    new UiObject(new UiSelector().description("Home")).click();
                 }
             } else {
-                new UiObject(new UiSelector().text("Home")).click();
+                new UiObject(new UiSelector().description("Home")).click();
             }
 
-            new UiObject(new UiSelector().text(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
         }
     }
