@@ -23,6 +23,22 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
+import page_objects.pages.HomePage;
+import page_objects.sections.*;
+import page_objects.subsections.business.*;
+import page_objects.subsections.comment.CommentCIFAmerica;
+import page_objects.subsections.comment.CommentCIFBelief;
+import page_objects.subsections.comment.CommentCartoon;
+import page_objects.subsections.culture.*;
+import page_objects.subsections.environment.*;
+import page_objects.subsections.football.*;
+import page_objects.subsections.lifestyle.*;
+import page_objects.subsections.money.*;
+import page_objects.subsections.sport.*;
+import page_objects.subsections.tech.*;
+import page_objects.subsections.travel.*;
+import page_objects.subsections.uknews.*;
+import page_objects.subsections.world.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -77,336 +93,418 @@ public class GlobalNav extends UiAutomatorTestCase {
 // Sections
 //=====================================================
 
-    public void navigateToSectionHome () throws UiObjectNotFoundException {
+    public HomePage navigateToSectionHome () throws UiObjectNotFoundException {
         openSection(SectionNames.Home);
+        return new HomePage();
     }
 
-    public void navigateToSectionUKNews () throws UiObjectNotFoundException {
+    public UKNews navigateToSectionUKNews () throws UiObjectNotFoundException {
         openSection(SectionNames.UKNews);
+        return new UKNews();
     }
 
-    public void navigateToSectionWorld () throws UiObjectNotFoundException {
+    public World navigateToSectionWorld () throws UiObjectNotFoundException {
         openSection(SectionNames.World);
+        return new World();
     }
 
-    public void navigateToSectionComment () throws UiObjectNotFoundException {
+    public Comment navigateToSectionComment () throws UiObjectNotFoundException {
         openSection(SectionNames.Comment);
+        return new Comment();
     }
 
-    public void navigateToSectionSport () throws UiObjectNotFoundException {
+    public Sport navigateToSectionSport () throws UiObjectNotFoundException {
         openSection(SectionNames.Sport);
+        return new Sport();
     }
 
-    public void navigateToSectionFootball () throws UiObjectNotFoundException {
+    public Football navigateToSectionFootball () throws UiObjectNotFoundException {
         openSection(SectionNames.Football);
+        return new Football();
     }
 
-    public void navigateToSectionLifeStyle () throws UiObjectNotFoundException {
+    public LifeStyle navigateToSectionLifeStyle () throws UiObjectNotFoundException {
         openSection(SectionNames.LifeStyle);
+        return new LifeStyle();
     }
 
-    public void navigateToSectionCulture () throws UiObjectNotFoundException {
+    public Culture navigateToSectionCulture () throws UiObjectNotFoundException {
         openSection(SectionNames.Culture);
+        return new Culture();
     }
 
-    public void navigateToSectionBusiness () throws UiObjectNotFoundException {
+    public Business navigateToSectionBusiness () throws UiObjectNotFoundException {
         openSection(SectionNames.Business);
+        return new Business();
     }
 
-    public void navigateToSectionMoney () throws UiObjectNotFoundException {
+    public Money navigateToSectionMoney () throws UiObjectNotFoundException {
         openSection(SectionNames.Money);
+        return new Money();
     }
 
-    public void navigateToSectionTravel () throws UiObjectNotFoundException {
+    public Travel navigateToSectionTravel () throws UiObjectNotFoundException {
         openSection(SectionNames.Travel);
+        return new Travel();
     }
 
-    public void navigateToSectionTech () throws UiObjectNotFoundException {
+    public Tech navigateToSectionTech () throws UiObjectNotFoundException {
         openSection(SectionNames.Tech);
+        return new Tech();
     }
 
-    public void navigateToSectionEnvironment () throws UiObjectNotFoundException {
+    public Environment navigateToSectionEnvironment () throws UiObjectNotFoundException {
         openSection(SectionNames.Environment);
+        return new Environment();
     }
 
 //=====================================================
 // Sub Sections
 //=====================================================
 
-    public void navigateToSubsectionUKPolitics () throws UiObjectNotFoundException {
+    public UKPolitics navigateToSubsectionUKPolitics () throws UiObjectNotFoundException {
         openSection(SectionNames.Politics);
+        return new UKPolitics();
     }
 
-    public void navigateToSubsectionUKMedia () throws UiObjectNotFoundException {
+    public UKMedia navigateToSubsectionUKMedia () throws UiObjectNotFoundException {
         openSection(SectionNames.Media);
+        return new UKMedia();
     }
 
-    public void navigateToSubsectionUKScience () throws UiObjectNotFoundException {
+    public UKScience navigateToSubsectionUKScience () throws UiObjectNotFoundException {
         openSection(SectionNames.Science);
+        return new UKScience();
     }
 
-    public void navigateToSubsectionUKSociety () throws UiObjectNotFoundException {
+    public UKSociety navigateToSubsectionUKSociety () throws UiObjectNotFoundException {
         openSection(SectionNames.Society);
+        return new UKSociety();
     }
 
-    public void navigateToSubsectionUKHealth () throws UiObjectNotFoundException {
+    public UKHealth navigateToSubsectionUKHealth () throws UiObjectNotFoundException {
         openSection(SectionNames.Health);
+        return new UKHealth();
     }
 
-    public void navigateToSubsectionUKEducation () throws UiObjectNotFoundException {
+    public UKEducation navigateToSubsectionUKEducation () throws UiObjectNotFoundException {
         openSection(SectionNames.Education);
+        return new UKEducation();
     }
 
-    public void navigateToSubsectionWorldUS () throws UiObjectNotFoundException {
+    public WorldUS navigateToSubsectionWorldUS () throws UiObjectNotFoundException {
         openSection(SectionNames.US);
+        return new WorldUS();
     }
 
-    public void navigateToSubsectionWorldEurope () throws UiObjectNotFoundException {
+    public WorldEurope navigateToSubsectionWorldEurope () throws UiObjectNotFoundException {
         openSection(SectionNames.Europe);
+        return new WorldEurope();
     }
 
-    public void navigateToSubsectionWorldAfrica () throws UiObjectNotFoundException {
+    public WorldAfrica navigateToSubsectionWorldAfrica () throws UiObjectNotFoundException {
         openSection(SectionNames.Africa);
+        return new WorldAfrica();
     }
 
-    public void navigateToSubsectionWorldAsia () throws UiObjectNotFoundException {
+    public WorldAsia navigateToSubsectionWorldAsia () throws UiObjectNotFoundException {
         openSection(SectionNames.Asia);
+        return new WorldAsia();
     }
 
-    public void navigateToSubsectionWorldAustralia () throws UiObjectNotFoundException {
+    public WorldAustralia navigateToSubsectionWorldAustralia () throws UiObjectNotFoundException {
         openSection(SectionNames.Australia);
+        return new WorldAustralia();
     }
 
-    public void navigateToSubsectionWorldAmericas () throws UiObjectNotFoundException {
+    public WorldAmericas navigateToSubsectionWorldAmericas () throws UiObjectNotFoundException {
         openSection(SectionNames.Americas);
+        return new WorldAmericas();
     }
 
-    public void navigateToSubsectionCommentCIFAmerica () throws UiObjectNotFoundException {
+    public CommentCIFAmerica navigateToSubsectionCommentCIFAmerica () throws UiObjectNotFoundException {
         openSection(SectionNames.CIFAmerica);
+        return new CommentCIFAmerica();
     }
 
-    public void navigateToSubsectionCommentCIFBelief () throws UiObjectNotFoundException {
+    public CommentCIFBelief navigateToSubsectionCommentCIFBelief () throws UiObjectNotFoundException {
         openSection(SectionNames.CIFBelief);
+        return new CommentCIFBelief();
     }
 
-    public void navigateToSubsectionCommentCartoon () throws UiObjectNotFoundException {
+    public CommentCartoon navigateToSubsectionCommentCartoon () throws UiObjectNotFoundException {
         openSection(SectionNames.Cartoon);
+        return new CommentCartoon();
     }
 
-    public void navigateToSubsectionSportCricket () throws UiObjectNotFoundException {
+    public SportCricket navigateToSubsectionSportCricket () throws UiObjectNotFoundException {
         openSection(SectionNames.Cricket);
+        return new SportCricket();
     }
 
-    public void navigateToSubsectionSportRugbyUnion () throws UiObjectNotFoundException {
+    public SportRugbyUnion navigateToSubsectionSportRugbyUnion () throws UiObjectNotFoundException {
         openSection(SectionNames.RugbyUnion);
+        return new SportRugbyUnion();
     }
 
-    public void navigateToSubsectionSportMotorSport () throws UiObjectNotFoundException {
+    public SportMotorSport navigateToSubsectionSportMotorSport () throws UiObjectNotFoundException {
         openSection(SectionNames.MotorSport);
+        return new SportMotorSport();
     }
 
-    public void navigateToSubsectionSportTennis () throws UiObjectNotFoundException {
+    public SportTennis navigateToSubsectionSportTennis () throws UiObjectNotFoundException {
         openSection(SectionNames.Tennis);
+        return new SportTennis();
     }
 
-    public void navigateToSubsectionSportGolf () throws UiObjectNotFoundException {
+    public SportGolf navigateToSubsectionSportGolf () throws UiObjectNotFoundException {
         openSection(SectionNames.Golf);
+        return new SportGolf();
     }
 
-    public void navigateToSubsectionSportHorseRacing () throws UiObjectNotFoundException {
+    public SportHorseRacing navigateToSubsectionSportHorseRacing () throws UiObjectNotFoundException {
         openSection(SectionNames.HorseRacing);
+        return new SportHorseRacing();
     }
 
-    public void navigateToSubsectionSportRugbyLeague () throws UiObjectNotFoundException {
+    public SportRugbyLeague navigateToSubsectionSportRugbyLeague () throws UiObjectNotFoundException {
         openSection(SectionNames.RugbyLeague);
+        return new SportRugbyLeague();
     }
 
-    public void navigateToSubsectionSportUSSport () throws UiObjectNotFoundException {
+    public SportUSSport navigateToSubsectionSportUSSport () throws UiObjectNotFoundException {
         openSection(SectionNames.USSport);
+        return new SportUSSport();
     }
 
-    public void navigateToSubsectionSportBoxing () throws UiObjectNotFoundException {
+    public SportBoxing navigateToSubsectionSportBoxing () throws UiObjectNotFoundException {
         openSection(SectionNames.Boxing);
+        return new SportBoxing();
     }
 
-    public void navigateToSubsectionSportCycling () throws UiObjectNotFoundException {
+    public SportCycling navigateToSubsectionSportCycling () throws UiObjectNotFoundException {
         openSection(SectionNames.Cycling);
+        return new SportCycling();
     }
 
-    public void navigateToSubsectionFootballLiveScores () throws UiObjectNotFoundException {
+    public FootballLiveScores navigateToSubsectionFootballLiveScores () throws UiObjectNotFoundException {
         openSection(SectionNames.LiveScores);
+        return new FootballLiveScores();
     }
 
-    public void navigateToSubsectionFootballClubs () throws UiObjectNotFoundException {
+    public FootballClubs navigateToSubsectionFootballClubs () throws UiObjectNotFoundException {
         openSection(SectionNames.Clubs);
+        return new FootballClubs();
     }
 
-    public void navigateToSubsectionFootballCompetitions () throws UiObjectNotFoundException {
+    public FootballCompetitions navigateToSubsectionFootballCompetitions () throws UiObjectNotFoundException {
         openSection(SectionNames.Competitions);
+        return new FootballCompetitions();
     }
 
-    public void navigateToSubsectionFootballResults () throws UiObjectNotFoundException {
+    public FootballResults navigateToSubsectionFootballResults () throws UiObjectNotFoundException {
         openSection(SectionNames.Results);
+        return new FootballResults();
     }
 
-    public void navigateToSubsectionFootballFixtures () throws UiObjectNotFoundException {
+    public FootballFixtures navigateToSubsectionFootballFixtures () throws UiObjectNotFoundException {
         openSection(SectionNames.Fixtures);
+        return new FootballFixtures();
     }
 
-    public void navigateToSubsectionFootballTables () throws UiObjectNotFoundException {
+    public FootballTables navigateToSubsectionFootballTables () throws UiObjectNotFoundException {
         openSection(SectionNames.Tables);
+        return new FootballTables();
     }
 
-    public void navigateToSubsectionLifeStyleFoodDrink () throws UiObjectNotFoundException {
+    public LifeStyleFoodDrink navigateToSubsectionLifeStyleFoodDrink () throws UiObjectNotFoundException {
         openSection(SectionNames.FoodDrink);
+        return new LifeStyleFoodDrink();
     }
 
-    public void navigateToSubsectionLifeStyleFashion () throws UiObjectNotFoundException {
+    public LifeStyleFashion navigateToSubsectionLifeStyleFashion () throws UiObjectNotFoundException {
         openSection(SectionNames.Fashion);
+        return new LifeStyleFashion();
     }
 
-    public void navigateToSubsectionLifeStyleHomes () throws UiObjectNotFoundException {
+    public LifeStyleHomes navigateToSubsectionLifeStyleHomes () throws UiObjectNotFoundException {
         openSection(SectionNames.Homes);
+        return new LifeStyleHomes();
     }
 
-    public void navigateToSubsectionLifeStyleWomen () throws UiObjectNotFoundException {
+    public LifeStyleWomen navigateToSubsectionLifeStyleWomen () throws UiObjectNotFoundException {
         openSection(SectionNames.Women);
+        return new LifeStyleWomen();
     }
 
-    public void navigateToSubsectionLifeStyleLoveFamily () throws UiObjectNotFoundException {
+    public LifeStyleLoveFamily navigateToSubsectionLifeStyleLoveFamily () throws UiObjectNotFoundException {
         openSection(SectionNames.LoveFamily);
+        return new LifeStyleLoveFamily();
     }
 
-    public void navigateToSubsectionLifeStyleWellbeing () throws UiObjectNotFoundException {
+    public LifeStyleWellbeing navigateToSubsectionLifeStyleWellbeing () throws UiObjectNotFoundException {
         openSection(SectionNames.Wellbeing);
+        return new LifeStyleWellbeing();
     }
 
-    public void navigateToSubsectionCultureTVRadio () throws UiObjectNotFoundException {
+    public CultureTVRadio navigateToSubsectionCultureTVRadio () throws UiObjectNotFoundException {
         openSection(SectionNames.TVRadio);
+        return new CultureTVRadio();
     }
 
-    public void navigateToSubsectionCultureFilm () throws UiObjectNotFoundException {
+    public CultureFilm navigateToSubsectionCultureFilm () throws UiObjectNotFoundException {
         openSection(SectionNames.Film);
+        return new CultureFilm();
     }
 
-    public void navigateToSubsectionCultureMusic () throws UiObjectNotFoundException {
+    public CultureMusic navigateToSubsectionCultureMusic () throws UiObjectNotFoundException {
         openSection(SectionNames.Music);
+        return new CultureMusic();
     }
 
-    public void navigateToSubsectionCultureStage () throws UiObjectNotFoundException {
+    public CultureStage navigateToSubsectionCultureStage () throws UiObjectNotFoundException {
         openSection(SectionNames.Stage);
+        return new CultureStage();
     }
 
-    public void navigateToSubsectionCultureBooks () throws UiObjectNotFoundException {
+    public CultureBooks navigateToSubsectionCultureBooks () throws UiObjectNotFoundException {
         openSection(SectionNames.Books);
+        return new CultureBooks();
     }
 
-    public void navigateToSubsectionCultureArtDesign () throws UiObjectNotFoundException {
+    public CultureArtDesign navigateToSubsectionCultureArtDesign () throws UiObjectNotFoundException {
         openSection(SectionNames.ArtDesign);
+        return new CultureArtDesign();
     }
 
-    public void navigateToSubsectionBusinessEconomics () throws UiObjectNotFoundException {
+    public BusinessEconomics navigateToSubsectionBusinessEconomics () throws UiObjectNotFoundException {
         openSection(SectionNames.Economics);
+        return new BusinessEconomics();
     }
 
-    public void navigateToSubsectionBusinessEuroCrisis () throws UiObjectNotFoundException {
+    public BusinessEuroCrisis navigateToSubsectionBusinessEuroCrisis () throws UiObjectNotFoundException {
         openSection(SectionNames.EuroCrisis);
+        return new BusinessEuroCrisis();
     }
 
-    public void navigateToSubsectionBusinessEuro () throws UiObjectNotFoundException {
+    public BusinessEuro navigateToSubsectionBusinessEuro () throws UiObjectNotFoundException {
         openSection(SectionNames.Euro);
+        return new BusinessEuro();
     }
 
-    public void navigateToSubsectionBusinessBanking () throws UiObjectNotFoundException {
+    public BusinessBanking navigateToSubsectionBusinessBanking () throws UiObjectNotFoundException {
         openSection(SectionNames.Banking);
+        return new BusinessBanking();
     }
 
-    public void navigateToSubsectionBusinessRetail () throws UiObjectNotFoundException {
+    public BusinessRetail navigateToSubsectionBusinessRetail () throws UiObjectNotFoundException {
         openSection(SectionNames.Retail);
+        return new BusinessRetail();
     }
 
-    public void navigateToSubsectionMoneyConsumer () throws UiObjectNotFoundException {
+    public MoneyConsumer navigateToSubsectionMoneyConsumer () throws UiObjectNotFoundException {
         openSection(SectionNames.Consumer);
+        return new MoneyConsumer();
     }
 
-    public void navigateToSubsectionMoneyProperty () throws UiObjectNotFoundException {
+    public MoneyProperty navigateToSubsectionMoneyProperty () throws UiObjectNotFoundException {
         openSection(SectionNames.Property);
+        return new MoneyProperty();
     }
 
-    public void navigateToSubsectionMoneyWork () throws UiObjectNotFoundException {
+    public MoneyWork navigateToSubsectionMoneyWork () throws UiObjectNotFoundException {
         openSection(SectionNames.Work);
+        return new MoneyWork();
     }
 
-    public void navigateToSubsectionMoneyFamilyFinances () throws UiObjectNotFoundException {
+    public MoneyFamilyFinances navigateToSubsectionMoneyFamilyFinances () throws UiObjectNotFoundException {
         openSection(SectionNames.FamilyFin);
+        return new MoneyFamilyFinances();
     }
 
-    public void navigateToSubsectionMoneySaving () throws UiObjectNotFoundException {
+    public MoneySaving navigateToSubsectionMoneySaving () throws UiObjectNotFoundException {
         openSection(SectionNames.Saving);
+        return new MoneySaving();
     }
 
-    public void navigateToSubsectionMoneyBorrowing () throws UiObjectNotFoundException {
+    public MoneyBorrowing navigateToSubsectionMoneyBorrowing () throws UiObjectNotFoundException {
         openSection(SectionNames.Borrowing);
+        return new MoneyBorrowing();
     }
 
-    public void navigateToSubsectionTravelShortBreaks () throws UiObjectNotFoundException {
+    public TravelShortBreaks navigateToSubsectionTravelShortBreaks () throws UiObjectNotFoundException {
         openSection(SectionNames.ShortBreaks);
+        return new TravelShortBreaks();
     }
 
-    public void navigateToSubsectionTravelTopTens () throws UiObjectNotFoundException {
+    public TravelTopTens navigateToSubsectionTravelTopTens () throws UiObjectNotFoundException {
         openSection(SectionNames.TopsTens);
+        return new TravelTopTens();
     }
 
-    public void navigateToSubsectionTravelEurope () throws UiObjectNotFoundException {
+    public TravelEurope navigateToSubsectionTravelEurope () throws UiObjectNotFoundException {
         openSection(SectionNames.EuropeTr);
+        return new TravelEurope();
     }
 
-    public void navigateToSubsectionTravelHotels () throws UiObjectNotFoundException {
+    public TravelHotels navigateToSubsectionTravelHotels () throws UiObjectNotFoundException {
         openSection(SectionNames.Hotels);
+        return new TravelHotels();
     }
 
-    public void navigateToSubsectionTravelFoodDrink () throws UiObjectNotFoundException {
+    public TravelFoodDrink navigateToSubsectionTravelFoodDrink () throws UiObjectNotFoundException {
         openSection(SectionNames.FoodDr);
+        return new TravelFoodDrink();
     }
 
-    public void navigateToSubsectionTechGames () throws UiObjectNotFoundException {
+    public TechGames navigateToSubsectionTechGames () throws UiObjectNotFoundException {
         openSection(SectionNames.Games);
+        return new TechGames();
     }
 
-    public void navigateToSubsectionTechMobilesTablets () throws UiObjectNotFoundException {
+    public TechMobilesTablets navigateToSubsectionTechMobilesTablets () throws UiObjectNotFoundException {
         openSection(SectionNames.MobTab);
+        return new TechMobilesTablets();
     }
 
-    public void navigateToSubsectionTechApps () throws UiObjectNotFoundException {
+    public TechApps navigateToSubsectionTechApps () throws UiObjectNotFoundException {
         openSection(SectionNames.Apps);
+        return new TechApps();
     }
 
-    public void navigateToSubsectionTechApple () throws UiObjectNotFoundException {
+    public TechApple navigateToSubsectionTechApple () throws UiObjectNotFoundException {
         openSection(SectionNames.Apple);
+        return new TechApple();
     }
 
-    public void navigateToSubsectionTechGoogle () throws UiObjectNotFoundException {
+    public TechGoogle navigateToSubsectionTechGoogle () throws UiObjectNotFoundException {
         openSection(SectionNames.Google);
+        return new TechGoogle();
     }
 
-    public void navigateToSubsectionEnvironmentClimateChange () throws UiObjectNotFoundException {
+    public EnvironmentClimateChange navigateToSubsectionEnvironmentClimateChange () throws UiObjectNotFoundException {
         openSection(SectionNames.ClimChange);
+        return new EnvironmentClimateChange();
     }
 
-    public void navigateToSubsectionEnvironmentWildlife () throws UiObjectNotFoundException {
+    public EnvironmentWildlife navigateToSubsectionEnvironmentWildlife () throws UiObjectNotFoundException {
         openSection(SectionNames.Wildlife);
+        return new EnvironmentWildlife();
     }
 
-    public void navigateToSubsectionEnvironmentEnergy () throws UiObjectNotFoundException {
+    public EnvironmentEnergy navigateToSubsectionEnvironmentEnergy () throws UiObjectNotFoundException {
         openSection(SectionNames.Energy);
+        return new EnvironmentEnergy();
     }
 
-    public void navigateToSubsectionEnvironmentConservation () throws UiObjectNotFoundException {
+    public EnvironmentConservation navigateToSubsectionEnvironmentConservation () throws UiObjectNotFoundException {
         openSection(SectionNames.Conservation);
+        return new EnvironmentConservation();
     }
 
-    public void navigateToSubsectionEnvironmentFood () throws UiObjectNotFoundException {
+    public EnvironmentFood navigateToSubsectionEnvironmentFood () throws UiObjectNotFoundException {
         openSection(SectionNames.Food);
+        return new EnvironmentFood();
     }
 
 }
