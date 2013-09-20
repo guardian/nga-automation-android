@@ -16,7 +16,7 @@
 
 package page_objects.subsections.world;
 
-import page_objects.subsections.SubSectionSuper;
+import page_objects.pages.Lists;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,5 +25,5 @@ import page_objects.subsections.SubSectionSuper;
  * Time: 14:36
  * To change this template use File | Settings | File Templates.
  */
-public class WorldAustralia extends SubSectionSuper {
+public class WorldAustralia extends Lists {
 }

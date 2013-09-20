@@ -19,6 +19,7 @@ package page_objects.helpers;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import page_objects.pages.HomePage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,9 +34,10 @@ public class Utility extends UiAutomatorTestCase {
 // Setup
 //=====================================================
 
-    public static void appStart () throws UiObjectNotFoundException {
+    public static HomePage appStart () throws UiObjectNotFoundException {
 
         Utility.waitFiveSeconds();
+        return new HomePage();
     }
 
 //=====================================================

@@ -16,7 +16,7 @@
 
 package page_objects.subsections.travel;
 
-import page_objects.subsections.SubSectionSuper;
+import page_objects.pages.Lists;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,6 +25,6 @@ import page_objects.subsections.SubSectionSuper;
  * Time: 15:19
  * To change this template use File | Settings | File Templates.
  */
-public class TravelShortBreaks extends SubSectionSuper {
+public class TravelShortBreaks extends Lists {
 
 }

@@ -16,6 +16,8 @@
 
 package page_objects.sections;
 
+import page_objects.pages.Fronts;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
@@ -23,5 +25,5 @@ package page_objects.sections;
  * Time: 14:20
  * To change this template use File | Settings | File Templates.
  */
-public class Comment extends SectionSuper {
+public class Comment extends Fronts {
 }

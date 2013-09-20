@@ -26,9 +26,7 @@ import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
 import page_objects.sections.*;
 import page_objects.subsections.business.*;
-import page_objects.subsections.comment.CommentCIFAmerica;
-import page_objects.subsections.comment.CommentCIFBelief;
-import page_objects.subsections.comment.CommentCartoon;
+import page_objects.subsections.comment.*;
 import page_objects.subsections.culture.*;
 import page_objects.subsections.environment.*;
 import page_objects.subsections.football.*;
@@ -47,7 +45,7 @@ import page_objects.subsections.world.*;
  * Time: 16:33
  * To change this template use File | Settings | File Templates.
  */
-public class GlobalNav extends UiAutomatorTestCase {
+public class GlobalNav {
 
 //=====================================================
 // Navigation
@@ -59,8 +57,12 @@ public class GlobalNav extends UiAutomatorTestCase {
 
         if (sectionName.parent != null) {
             clickSection(sectionName.parent.uiName);
+            clickSection(sectionName.uiName);
         }
-        clickSection(sectionName.uiName);
+        else {
+            clickSection(sectionName.uiName);
+            clickSection(sectionName.uiName);
+        }
     }
 
     public void clickSection(String sectionNameStr) throws UiObjectNotFoundException {

@@ -16,7 +16,7 @@
 
 package page_objects.subsections.uknews;
 
-import page_objects.subsections.SubSectionSuper;
+import page_objects.pages.Lists;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,5 +25,5 @@ import page_objects.subsections.SubSectionSuper;
  * Time: 14:33
  * To change this template use File | Settings | File Templates.
  */
-public class UKSociety extends SubSectionSuper {
+public class UKSociety extends Lists {
 }

@@ -16,6 +16,9 @@
 
 package page_objects.sections;
 
+import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiSelector;
 import page_objects.navigation.GlobalNav;
 
 /**
@@ -26,4 +29,14 @@ import page_objects.navigation.GlobalNav;
  * To change this template use File | Settings | File Templates.
  */
 public class SectionSuper extends GlobalNav {
+
+//=====================================================
+// Checks
+//=====================================================
+
+    public String getSectionTitle() throws UiObjectNotFoundException {
+        String sectionTitle = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1).childSelector(new UiSelector().className("android.widget.TextView").index(0))).getText();
+        return sectionTitle;
+    }
+
 }

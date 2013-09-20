@@ -16,7 +16,7 @@
 
 package page_objects.subsections.sport;
 
-import page_objects.subsections.SubSectionSuper;
+import page_objects.pages.Lists;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,5 +25,5 @@ import page_objects.subsections.SubSectionSuper;
  * Time: 14:42
  * To change this template use File | Settings | File Templates.
  */
-public class SportRugbyLeague extends SubSectionSuper {
+public class SportRugbyLeague extends Lists {
 }

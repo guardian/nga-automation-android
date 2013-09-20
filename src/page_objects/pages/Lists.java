@@ -14,16 +14,16 @@
  *    limitations under the License.
  */
 
-package page_objects.subsections.travel;
+package page_objects.pages;
 
-import page_objects.pages.Lists;
+import page_objects.sections.SectionSuper;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
- * Date: 19/09/13
- * Time: 15:20
+ * Date: 20/09/13
+ * Time: 15:29
  * To change this template use File | Settings | File Templates.
  */
-public class TravelTopTens extends Lists {
+public class Lists extends SectionSuper{
 }

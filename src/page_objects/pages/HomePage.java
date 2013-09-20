@@ -16,6 +16,8 @@
 
 package page_objects.pages;
 
+import page_objects.sections.SectionSuper;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
@@ -23,5 +25,5 @@ package page_objects.pages;
  * Time: 14:17
  * To change this template use File | Settings | File Templates.
  */
-public class HomePage {
+public class HomePage extends Fronts {
 }

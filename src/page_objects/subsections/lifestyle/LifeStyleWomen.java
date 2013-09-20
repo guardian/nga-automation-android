@@ -16,7 +16,7 @@
 
 package page_objects.subsections.lifestyle;
 
-import page_objects.subsections.SubSectionSuper;
+import page_objects.pages.Lists;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,5 +25,5 @@ import page_objects.subsections.SubSectionSuper;
  * Time: 15:05
  * To change this template use File | Settings | File Templates.
  */
-public class LifeStyleWomen extends SubSectionSuper {
+public class LifeStyleWomen extends Lists {
 }
