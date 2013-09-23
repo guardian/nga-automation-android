@@ -21,6 +21,7 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.navigation.GlobalNav;
+import page_objects.pages.HomePage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,7 +34,12 @@ public class demo extends UiAutomatorTestCase {
 
     public void testDemo () throws UiObjectNotFoundException {
 
-        GlobalNav globalNav = new GlobalNav();
-        globalNav.openSection(SectionNames.Comment);
+        HomePage homePage = new HomePage();
+        boolean isTestPassing = true;
+        if (homePage.isStandardArticlePresent()) {
+            homePage.openFirstArticle();
+
+        }
+
     }
 }

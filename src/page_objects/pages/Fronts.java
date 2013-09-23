@@ -26,4 +26,6 @@ import page_objects.sections.SectionSuper;
  * To change this template use File | Settings | File Templates.
  */
 public class Fronts extends SectionSuper{
+
+
 }

@@ -69,7 +69,8 @@ public class GlobalNav {
         if (new UiObject(new UiSelector().description(sectionNameStr)).exists()) {
             new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
-        } else {
+        }
+        else {
 
             if (new UiScrollable(new UiSelector().scrollable(true)).exists()) {
                 UiScrollable scrollList = new UiScrollable(new UiSelector().scrollable(true));
@@ -82,8 +83,13 @@ public class GlobalNav {
                         throw new UiObjectNotFoundException("CANNOT FIND OBJECT");
                     new UiObject(new UiSelector().description("Home")).click();
                 }
-            } else {
+            }
+               else {
                 new UiObject(new UiSelector().description("Home")).click();
+            }
+
+            if (new UiScrollable(new UiSelector().scrollable(true)).exists()) {
+                new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().description(sectionNameStr));
             }
 
             new UiObject(new UiSelector().description(sectionNameStr)).click();

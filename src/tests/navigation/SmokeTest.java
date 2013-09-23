@@ -21,7 +21,6 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
 import page_objects.sections.Comment;
-import page_objects.subsections.comment.CommentCIFAmerica;
 import page_objects.subsections.sport.SportUSSport;
 import page_objects.subsections.travel.TravelHotels;
 
