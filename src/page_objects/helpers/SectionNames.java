@@ -27,7 +27,7 @@ public enum SectionNames {
 
         Home,
 
-        UKNews("Uk News"),
+        UKNews("UK news"),
             Politics (UKNews),
             Media (UKNews),
             Science (UKNews),

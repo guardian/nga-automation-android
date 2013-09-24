@@ -14,27 +14,21 @@
  *    limitations under the License.
  */
 
-package tests;
-
-import com.android.uiautomator.core.UiObjectNotFoundException;
-import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import page_objects.helpers.ItemTypes;
-import page_objects.helpers.Utility;
-import page_objects.pages.*;
-import page_objects.sections.Sport;
+package page_objects.helpers;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
- * Date: 17/09/13
- * Time: 13:51
+ * Date: 24/09/13
+ * Time: 10:21
  * To change this template use File | Settings | File Templates.
  */
-public class demo extends UiAutomatorTestCase {
+public enum ItemTypes {
 
-    public void testDemo () throws UiObjectNotFoundException {
-
-        HomePage homePage = new HomePage();
-        AudioArticlePage audio = homePage.navigateToAndOpenAudioArticle();
-    }
+    Article,
+    Video,
+    Audio,
+    Gallery,
+    Live,
+    Comment;
 }

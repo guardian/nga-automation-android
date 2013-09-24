@@ -44,5 +44,7 @@ public class SmokeTest extends UiAutomatorTestCase {
 
         TravelHotels hotels = usSport.navigateToSubsectionTravelHotels();
         assertTrue(hotels.getSectionTitle().equals("Hotels"));
+
+        HomePage homePage1 = hotels.navigateToSectionHome();
     }
 }
