@@ -61,6 +61,11 @@ public class SectionSuper extends GlobalNav {
         return new GalleryPage();
     }
 
+    public CommentArticlePage openFirstCommentArticle () throws UiObjectNotFoundException {
+        new UiObject(new UiSelector().descriptionStartsWith("Comment")).click();
+        return new CommentArticlePage();
+    }
+
 
 //=====================================================
 // Checks
@@ -94,6 +99,11 @@ public class SectionSuper extends GlobalNav {
     public boolean isGalleryPresent () throws UiObjectNotFoundException{
         UiScrollable scrollList = new UiScrollable(new UiSelector().scrollable(true));
         return scrollList.scrollIntoView(new UiSelector().descriptionStartsWith("Gallery"));
+    }
+
+    public boolean isCommentArticlePresent () throws UiObjectNotFoundException{
+        UiScrollable scrollList = new UiScrollable(new UiSelector().scrollable(true));
+        return scrollList.scrollIntoView(new UiSelector().descriptionStartsWith("Comment"));
     }
 
 }
