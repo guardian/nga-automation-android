@@ -18,10 +18,8 @@ package tests;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import page_objects.helpers.ItemTypes;
 import page_objects.helpers.Utility;
 import page_objects.pages.*;
-import page_objects.sections.Sport;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +32,8 @@ public class demo extends UiAutomatorTestCase {
 
     public void testDemo () throws UiObjectNotFoundException {
 
-        HomePage homePage = new HomePage();
-        AudioArticlePage audio = homePage.navigateToAndOpenAudioArticle();
+        HomePage homePage = Utility.appStart();
+        homePage.swipeInNavDrawer();
+
     }
 }
