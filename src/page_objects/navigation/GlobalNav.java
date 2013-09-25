@@ -16,10 +16,7 @@
 
 package page_objects.navigation;
 
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiObjectNotFoundException;
-import com.android.uiautomator.core.UiScrollable;
-import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.*;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
@@ -521,6 +518,19 @@ public class GlobalNav {
     public EnvironmentFood navigateToSubsectionEnvironmentFood () throws UiObjectNotFoundException {
         openSection(SectionNames.Food);
         return new EnvironmentFood();
+    }
+
+//=====================================================
+// Actions
+//=====================================================
+
+    public void swipeInNavDrawer () throws UiObjectNotFoundException {
+        int deviceHeight = UiDevice.getInstance().getDisplayHeight();
+        int deviceWidth = UiDevice.getInstance().getDisplayWidth();
+        int yPosition = deviceHeight/2;
+        int xStartPosition = 0;
+        int xStopPosition =  deviceWidth/2;
+        UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 100);
     }
 
 }
