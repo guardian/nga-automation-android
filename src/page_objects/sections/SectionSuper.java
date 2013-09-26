@@ -16,10 +16,10 @@
 
 package page_objects.sections;
 
-import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
+import page_objects.UIAutomatorLogging.UiObjectLog;
 import page_objects.helpers.ItemTypes;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
@@ -101,7 +101,7 @@ public class SectionSuper extends GlobalNav {
 
     public void openFirstItemOfType(ItemTypes itemTypes) throws UiObjectNotFoundException {
         new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().descriptionStartsWith(itemTypes.toString()));
-        new UiObject(new UiSelector().descriptionStartsWith(itemTypes.toString())).click();
+        new UiObjectLog(new UiSelector().descriptionStartsWith(itemTypes.toString())).click();
     }
 
     public void navigateToAndOpenItemOfType (ItemTypes itemTypes) throws UiObjectNotFoundException{
@@ -128,7 +128,7 @@ public class SectionSuper extends GlobalNav {
 //=====================================================
 
     public String getSectionTitle() throws UiObjectNotFoundException {
-        String sectionTitle = new UiObject(new UiSelector().className("android.widget.FrameLayout").index(1).childSelector(new UiSelector().className("android.widget.TextView").index(0))).getText();
+        String sectionTitle = new UiObjectLog(new UiSelector().className("android.widget.FrameLayout").index(1).childSelector(new UiSelector().className("android.widget.TextView").index(0))).getText();
         return sectionTitle;
     }
 

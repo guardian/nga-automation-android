@@ -19,7 +19,9 @@ package tests;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.Utility;
-import page_objects.pages.*;
+import page_objects.pages.ArticlePage;
+import page_objects.pages.HomePage;
+import page_objects.sections.Sport;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,7 +35,8 @@ public class demo extends UiAutomatorTestCase {
     public void testDemo () throws UiObjectNotFoundException {
 
         HomePage homePage = Utility.appStart();
-        homePage.swipeInNavDrawer();
+        Sport sport = homePage.navigateToSectionSport();
+        ArticlePage article = sport.openFirstStandardArticle();
 
     }
 }

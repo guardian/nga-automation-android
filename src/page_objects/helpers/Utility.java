@@ -19,6 +19,7 @@ package page_objects.helpers;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import page_objects.UIAutomatorLogging.UiDeviceLog;
 import page_objects.pages.HomePage;
 
 /**
@@ -129,7 +130,7 @@ public class Utility extends UiAutomatorTestCase {
         int xScrollPosition = deviceWidth/2;
         int yScrollStart = 0;
         int yScrollStop = deviceHeight/2;
-        UiDevice.getInstance().swipe(xScrollPosition, yScrollStart, xScrollPosition, yScrollStop, 100);
+        UiDeviceLog.swipe(xScrollPosition, yScrollStart, xScrollPosition, yScrollStop, 100);
     }
 
 //=====================================================
