@@ -53,7 +53,9 @@ public class UiObjectLog extends UiObject {
 
     @Override
     public boolean setText(String text) throws UiObjectNotFoundException {
+        if (loggingOn){
         actionType = "text entered: " +text;
+        }
         return super.setText(text);
     }
 
