@@ -19,6 +19,8 @@ package page_objects.UIAutomatorLogging;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,27 +42,29 @@ public class UiObjectLog extends UiObject {
     }
 
     String actionType = null;
-    Boolean loggingOn = true;
+    Logger logger = LoggerFactory.getLogger("page_objects.UIAutomatorLogging.UiObjectLog");
 
     @Override
     public boolean click() throws UiObjectNotFoundException {
-        if (loggingOn){
-            actionType = "clicked";
-            objectLogger();
-        }
+
+        actionType = "clicked";
+        logger.debug(objectLogger());
+
         return super.click();
     }
 
     @Override
     public boolean setText(String text) throws UiObjectNotFoundException {
-        if (loggingOn){
+
         actionType = "text entered: " +text;
-        }
+        logger.debug(objectLogger());
+
         return super.setText(text);
     }
 
-    private void objectLogger (){
+    private String objectLogger (){
         String strMessage = "***OBJ LOG: " + getSelector().toString() + " " + actionType;
-        System.out.println(strMessage);
+        return strMessage;
     }
+
 }
