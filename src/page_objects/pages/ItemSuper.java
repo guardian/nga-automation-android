@@ -4,7 +4,6 @@ import com.android.uiautomator.core.UiDevice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import page_objects.UIAutomatorLogging.UiDeviceLog;
-import page_objects.helpers.Utility;
 import page_objects.navigation.GlobalNav;
 
 /**
