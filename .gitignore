@@ -1,5 +1,4 @@
 # General project files
-*.properties
 bin/
 
 # Intellij project files
