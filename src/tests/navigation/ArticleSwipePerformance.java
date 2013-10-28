@@ -33,8 +33,21 @@ public class ArticleSwipePerformance extends UiAutomatorTestCase {
 
     public void testArticleSwipePerformance() throws UiObjectNotFoundException {
 
+//        GIVEN: I have accessed an article from a front
+
         HomePage homePage = Utility.appStart();
         ArticlePage articlePage = homePage.openFirstStandardArticle();
-        articlePage.swipePerformanceCheck();
+
+//        WHEN: I swipe between several articles
+//        THEN: Item content is loaded
+//        AND: No crashes are reported
+
+        int i = 0;
+
+        while (i<20){
+            assertTrue(articlePage.isItemContentPresent());
+            articlePage.swipePerformanceCheck();
+            i++;
+        }
     }
 }

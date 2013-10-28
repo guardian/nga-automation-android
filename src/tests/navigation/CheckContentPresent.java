@@ -20,31 +20,32 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
-import page_objects.sections.Comment;
-import page_objects.subsections.sport.SportUSSport;
-import page_objects.subsections.travel.TravelHotels;
+import page_objects.sections.Sport;
+import page_objects.subsections.sport.SportCricket;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
- * Date: 20/09/13
- * Time: 12:19
+ * Date: 28/10/13
+ * Time: 13:00
  * To change this template use File | Settings | File Templates.
  */
-public class SmokeTest extends UiAutomatorTestCase {
+public class CheckContentPresent extends UiAutomatorTestCase{
 
-    public void testSmokeTest () throws UiObjectNotFoundException {
+    public void testCheckContentPresent() throws UiObjectNotFoundException {
+
+//        GIVEN: I am in the app
+//        WHEN: I navigate to a Front / list
+//        THEN: Items are displayed
 
         HomePage homePage = Utility.appStart();
-        Comment comment = homePage.navigateToSectionComment();
-        assertTrue(comment.getSectionTitle().equals("Comment"));
+        assertTrue(homePage.isAnyContentPresent());
 
-        SportUSSport usSport = comment.navigateToSubsectionSportUSSport();
-        assertTrue(usSport.getSectionTitle().equals("US Sport"));
+        Sport sport = homePage.navigateToSectionSport();
+        assertTrue(sport.isAnyContentPresent());
 
-        TravelHotels hotels = usSport.navigateToSubsectionTravelHotels();
-        assertTrue(hotels.getSectionTitle().equals("Hotels"));
+        SportCricket cricket = sport.navigateToSubsectionSportCricket();
+        assertTrue(cricket.isAnyContentPresent());
 
-        HomePage homePage1 = hotels.navigateToSectionHome();
     }
 }

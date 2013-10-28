@@ -17,8 +17,6 @@
 package page_objects.navigation;
 
 import com.android.uiautomator.core.*;
-import page_objects.UIAutomatorLogging.UiDeviceLog;
-import page_objects.UIAutomatorLogging.UiObjectLog;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
@@ -51,15 +49,22 @@ public class GlobalNav {
 
     public void openSection(SectionNames sectionName) throws UiObjectNotFoundException {
 
-        new UiObjectLog(new UiSelector().description("Navigate up")).click();
+        new UiObject(new UiSelector().description("Navigate up")).click();
 
-        if (sectionName.parent != null) {
+        String currentSection = getCapitalisedSectionTitle();
+        Utility.logMessage("Current section = " +currentSection);
+
+        if (sectionName.parent != null && sectionName.parent.toString().equals(currentSection)){
+            clickSection(sectionName.uiName);
+        }
+
+        else if (sectionName.parent != null && !sectionName.parent.toString().equals(currentSection)) {
             clickSection(sectionName.parent.uiName);
             clickSection(sectionName.uiName);
         }
         else {
             clickSection(sectionName.uiName);
-            new UiObjectLog(new UiSelector().descriptionStartsWith("Guardian,")).click();
+            new UiObject(new UiSelector().descriptionStartsWith("Guardian,")).click();
         }
         Utility.logMessage("openSection complete");
 
@@ -67,12 +72,12 @@ public class GlobalNav {
 
     public void clickSection(String sectionNameStr) throws UiObjectNotFoundException {
         if (sectionNameStr.equals("Home")){
-            new UiObjectLog(new UiSelector().description(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
         }
 
-        else if (new UiObjectLog(new UiSelector().description(sectionNameStr)).exists()) {
-            new UiObjectLog(new UiSelector().description(sectionNameStr)).click();
+        else if (new UiObject(new UiSelector().description(sectionNameStr)).exists()) {
+            new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
         }
         else {
@@ -81,24 +86,24 @@ public class GlobalNav {
                 UiScrollable scrollList = new UiScrollable(new UiSelector().scrollable(true));
                 scrollList.flingToBeginning(10);
 
-                boolean found = scrollList.scrollIntoView(new UiObjectLog(new UiSelector().description(sectionNameStr)));
+                boolean found = scrollList.scrollIntoView(new UiObject(new UiSelector().description(sectionNameStr)));
 
                 if (!found) {
-                    found = scrollList.scrollIntoView(new UiObjectLog(new UiSelector().description("Home")));
+                    found = scrollList.scrollIntoView(new UiObject(new UiSelector().description("Home")));
                     if (!found)
                         throw new UiObjectNotFoundException("CANNOT FIND OBJECT "+sectionNameStr );
-                    new UiObjectLog(new UiSelector().description("Home")).click();
+                    new UiObject(new UiSelector().description("Home")).click();
                 }
             }
                else {
-                new UiObjectLog(new UiSelector().description("Home")).click();
+                new UiObject(new UiSelector().description("Home")).click();
             }
 
             if (new UiScrollable(new UiSelector().scrollable(true)).exists()) {
                 new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().description(sectionNameStr));
             }
 
-            new UiObjectLog(new UiSelector().description(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).click();
             Utility.logMessage(sectionNameStr + " section opened");
         }
     }
@@ -525,13 +530,31 @@ public class GlobalNav {
 // Actions
 //=====================================================
 
+    public String getSectionTitle () throws UiObjectNotFoundException {
+        String text = new UiObject(new UiSelector().description("pageTitle")).getText();
+        String sectionName;
+        if (text.equals("guardian")){
+            sectionName = "Home";
+        }
+        else{
+            sectionName = text;
+        }
+        return sectionName;
+    }
+
+    public String getCapitalisedSectionTitle() throws UiObjectNotFoundException {
+        String input = getSectionTitle();
+        String output = input.substring(0, 1).toUpperCase() + input.substring(1);
+        return output;
+    }
+
     public void swipeInNavDrawer () throws UiObjectNotFoundException {
         int deviceHeight = UiDevice.getInstance().getDisplayHeight();
         int deviceWidth = UiDevice.getInstance().getDisplayWidth();
         int yPosition = deviceHeight/2;
         int xStartPosition = 0;
         int xStopPosition =  deviceWidth/2;
-        UiDeviceLog.swipe(xStartPosition, yPosition, xStopPosition, yPosition, 100);
+        UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 100);
     }
 
 }

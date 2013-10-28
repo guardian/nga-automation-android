@@ -1,9 +1,9 @@
 adb shell "am force-stop com.guardian"
-adb shell am start -n "com.guardian/com.guardian.ui.activities.HomePageActivity"
+adb shell am start -n "com.guardian/com.guardian.ui.activities.HomeActivity"
 ant build
 
 adb push bin\nga-automation-android.jar /data/local/tmp
 
-adb shell "uiautomator runtest nga-automation-android.jar -c tests.demo"
+adb shell "uiautomator runtest nga-automation-android.jar -c tests.navigation.CheckContentPresent"
 
 pause

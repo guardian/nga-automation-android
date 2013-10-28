@@ -1,9 +1,8 @@
 package page_objects.pages;
 
 import com.android.uiautomator.core.UiDevice;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import page_objects.UIAutomatorLogging.UiDeviceLog;
+import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiSelector;
 import page_objects.navigation.GlobalNav;
 
 /**
@@ -15,35 +14,36 @@ import page_objects.navigation.GlobalNav;
  */
 public class ItemSuper extends GlobalNav {
 
-    Logger logger = LoggerFactory.getLogger("page_objects.pages.ItemSuper");
+//=====================================================
+// Actions
+//=====================================================
 
     public void swipeToNextArticle() {
         int startX = (UiDevice.getInstance().getDisplayWidth()-5);
         int endX = 0;
         int y = (UiDevice.getInstance().getDisplayHeight())/2;
-        UiDeviceLog.swipe(startX, y, endX, y, 50);
+        UiDevice.getInstance().swipe(startX, y, endX, y, 50);
     }
 
     public void swipeToPreviousArticle() {
         int startX = 0;
         int endX = (UiDevice.getInstance().getDisplayWidth()-5);
         int y = (UiDevice.getInstance().getDisplayHeight())/2;
-        UiDeviceLog.swipe(startX, y, endX, y, 50);
+        UiDevice.getInstance().swipe(startX, y, endX, y, 50);
+    }
+
+    public boolean isItemContentPresent(){
+        Boolean present = null;
+        if (new UiObject(new UiSelector().className("android.webkit.WebView")).exists()){
+            present = true;
+        }
+        return present;
     }
 
     public void swipePerformanceCheck() {
-        int i = 1;
-
-        while (i<21){
             swipeToNextArticle();
             swipeToPreviousArticle();
             swipeToNextArticle();
-            i++;
-            logger.debug("Article checked: "+i);
-
-//            TODO: Assert content present with each swipe
-//            TODO: Catch crash as test failure - not reliant on objectnotfound crash
-        }
 
     }
 }
