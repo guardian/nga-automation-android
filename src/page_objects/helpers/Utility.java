@@ -20,6 +20,7 @@ import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.pages.HomePage;
+import page_objects.sections.SectionSuper;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,7 +37,14 @@ public class Utility extends UiAutomatorTestCase {
 
     public static HomePage appStart () throws UiObjectNotFoundException {
 
-        Utility.waitFiveSeconds();
+        SectionSuper sectionSuper = new SectionSuper();
+
+        int i = 0;
+
+        while (!sectionSuper.isAnyContentPresent() && i<10){
+            Utility.waitTwoSeconds();
+            i++;
+        }
         return new HomePage();
     }
 
