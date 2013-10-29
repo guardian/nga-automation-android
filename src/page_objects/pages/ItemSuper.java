@@ -2,7 +2,9 @@ package page_objects.pages;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
+import page_objects.helpers.Utility;
 import page_objects.navigation.GlobalNav;
 
 /**
@@ -12,7 +14,20 @@ import page_objects.navigation.GlobalNav;
  * Time: 16:52
  * To change this template use File | Settings | File Templates.
  */
-public class ItemSuper extends GlobalNav {
+public class ItemSuper {
+
+//=====================================================
+// Checks
+//=====================================================
+
+    public boolean checkActionBarContents() throws UiObjectNotFoundException {
+        if (isBackButtonPresent() && isShareButtonPresent() && isSavePageButtonPresent() && isTextSizeeButtonPresent()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 //=====================================================
 // Actions
@@ -45,5 +60,85 @@ public class ItemSuper extends GlobalNav {
             swipeToPreviousArticle();
             swipeToNextArticle();
 
+    }
+
+//=====================================================
+// Action bar
+//=====================================================
+
+    public void pressBackButton() throws UiObjectNotFoundException {
+        new UiObject(new UiSelector().description("Navigate up")).click();
+        Utility.logMessage("Action bar BACK button pressed");
+    }
+
+    public void pressShareButton() throws UiObjectNotFoundException {
+        new UiObject(new UiSelector().description("Share")).click();
+        Utility.logMessage("Action bar SHARE button pressed");
+    }
+
+    public void pressSavePageButton() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        new UiObject(new UiSelector().text("Save page")).click();
+        Utility.logMessage("Save page button pressed");
+    }
+
+    public void pressTextSizeButton() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        new UiObject(new UiSelector().text("Text size")).click();
+        Utility.logMessage("Text size button pressed");
+    }
+
+//=====================================================
+// Action bar checks
+//=====================================================
+
+    public boolean isBackButtonPresent() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().description("Navigate up")).exists()){
+            Utility.logMessage("Back button present");
+            return true;
+        }
+        else {
+            Utility.logMessage("Back button NOT present");
+            return false;
+        }
+    }
+
+    public boolean isShareButtonPresent() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().description("Share")).exists()){
+            Utility.logMessage("Share button present");
+            return true;
+        }
+        else {
+            Utility.logMessage("Share button NOT present");
+            return false;
+        }
+    }
+
+    public boolean isSavePageButtonPresent() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        if (new UiObject(new UiSelector().text("Save page")).exists()){
+            Utility.logMessage("Save page button present");
+            UiDevice.getInstance().pressBack();
+            return true;
+        }
+        else {
+            Utility.logMessage("Save page button NOT present");
+            UiDevice.getInstance().pressBack();
+            return false;
+        }
+    }
+
+    public boolean isTextSizeeButtonPresent() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        if (new UiObject(new UiSelector().text("Text size")).exists()){
+            Utility.logMessage("Text size button present");
+            UiDevice.getInstance().pressBack();
+            return true;
+        }
+        else {
+            Utility.logMessage("Text size button NOT present");
+            UiDevice.getInstance().pressBack();
+            return false;
+        }
     }
 }

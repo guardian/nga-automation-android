@@ -17,7 +17,9 @@
 package page_objects.helpers;
 
 import com.android.uiautomator.core.UiDevice;
+import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.pages.HomePage;
 import page_objects.sections.SectionSuper;
@@ -138,6 +140,15 @@ public class Utility extends UiAutomatorTestCase {
         int yScrollStart = 0;
         int yScrollStop = deviceHeight/2;
         UiDevice.getInstance().swipe(xScrollPosition, yScrollStart, xScrollPosition, yScrollStop, 100);
+    }
+
+    public static void selectOverflowOrDeviceMenuButton() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().description("More options")).exists()){
+            new UiObject(new UiSelector().description("More options")).click();
+        }
+        else {
+            UiDevice.getInstance().pressMenu();
+        }
     }
 
 //=====================================================

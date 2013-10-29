@@ -20,6 +20,7 @@ import com.android.uiautomator.core.*;
 import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
+import page_objects.pages.SettingsPage;
 import page_objects.sections.*;
 import page_objects.subsections.business.*;
 import page_objects.subsections.comment.*;
@@ -51,7 +52,7 @@ public class GlobalNav {
 
         SectionSuper sectionSuper = new SectionSuper();
 
-        new UiObject(new UiSelector().description("Navigate up")).click();
+        pressNavDrawerButton();
 
         String currentSection = getCapitalisedSectionTitle();
         Utility.logMessage("Current section = " +currentSection);
@@ -560,6 +561,20 @@ public class GlobalNav {
     }
 
 //=====================================================
+// Checks
+//=====================================================
+
+    public boolean checkActionBarContents() throws UiObjectNotFoundException {
+        if (isNavDrawerButtonPresent() && isRefreshButtonPresent() && isSettingsButtonPresent()){
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+
+//=====================================================
 // Actions
 //=====================================================
 
@@ -588,6 +603,67 @@ public class GlobalNav {
         int xStartPosition = 0;
         int xStopPosition =  deviceWidth/2;
         UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 100);
+    }
+
+//=====================================================
+// Action Bar
+//=====================================================
+
+    public void pressNavDrawerButton() throws UiObjectNotFoundException {
+        new UiObject(new UiSelector().description("Navigate up")).click();
+        Utility.logMessage("Nav drawer opened");
+    }
+
+    public void pressRefresh() throws UiObjectNotFoundException {
+        new UiObject(new UiSelector().description("Refresh")).click();
+        Utility.logMessage("Refresh button clicked");
+    }
+
+    public SettingsPage openSettingsPage() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        new UiObject(new UiSelector().text("Settings")).click();
+        Utility.logMessage("Settings page opened");
+        return new SettingsPage();
+    }
+
+//=====================================================
+// Action Bar Checks
+//=====================================================
+
+    public boolean isNavDrawerButtonPresent() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().description("Navigate up")).exists()){
+            Utility.logMessage("Nav drawer button present");
+            return true;
+        }
+        else {
+            Utility.logMessage("Nav drawer button NOT present");
+            return false;
+        }
+    }
+
+    public boolean isRefreshButtonPresent() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().description("Refresh")).exists()){
+            Utility.logMessage("Refresh button present");
+            return true;
+        }
+        else {
+            Utility.logMessage("Refresh button NOT present");
+            return false;
+        }
+    }
+
+    public boolean isSettingsButtonPresent() throws UiObjectNotFoundException {
+        Utility.selectOverflowOrDeviceMenuButton();
+        if (new UiObject(new UiSelector().text("Settings")).exists()){
+            Utility.logMessage("Settings button present");
+            UiDevice.getInstance().pressBack();
+            return true;
+        }
+        else {
+            Utility.logMessage("Settings button NOT present");
+            UiDevice.getInstance().pressBack();
+            return false;
+        }
     }
 
 }
