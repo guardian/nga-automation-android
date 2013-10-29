@@ -49,6 +49,8 @@ public class GlobalNav {
 
     public void openSection(SectionNames sectionName) throws UiObjectNotFoundException {
 
+        SectionSuper sectionSuper = new SectionSuper();
+
         new UiObject(new UiSelector().description("Navigate up")).click();
 
         String currentSection = getCapitalisedSectionTitle();
@@ -56,18 +58,49 @@ public class GlobalNav {
 
         if (sectionName.parent != null && sectionName.parent.toString().equals(currentSection)){
             clickSection(sectionName.uiName);
+
+            int i = 0;
+
+            while (!sectionSuper.isAnyContentPresent() && i<10){
+                Utility.waitTwoSeconds();
+                i++;
+            }
+
+            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
+                throw new UiObjectNotFoundException("No content present");
+            }
         }
 
         else if (sectionName.parent != null && !sectionName.parent.toString().equals(currentSection)) {
             clickSection(sectionName.parent.uiName);
             clickSection(sectionName.uiName);
+
+            int i = 0;
+
+            while (!sectionSuper.isAnyContentPresent() && i<10){
+                Utility.waitTwoSeconds();
+                i++;
+            }
+
+            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
+                throw new UiObjectNotFoundException("No content present");
+            }
         }
         else {
             clickSection(sectionName.uiName);
             new UiObject(new UiSelector().descriptionStartsWith("Guardian,")).click();
-        }
-        Utility.logMessage("openSection complete");
 
+            int i = 0;
+
+            while (!sectionSuper.isAnyContentPresent() && i<10){
+                Utility.waitTwoSeconds();
+                i++;
+            }
+
+            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
+                throw new UiObjectNotFoundException("No content present");
+            }
+        }
     }
 
     public void clickSection(String sectionNameStr) throws UiObjectNotFoundException {

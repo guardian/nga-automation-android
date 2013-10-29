@@ -44,7 +44,7 @@ public class Utility extends UiAutomatorTestCase {
 // Waits
 //=====================================================
 
-    private static void waitHalfSecond() {
+    public static void waitHalfSecond() {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -52,7 +52,7 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
-    private static void waitOneSeconds() {
+    public static void waitOneSeconds() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -60,7 +60,7 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
-    private static void waitTwoSeconds() {
+    public static void waitTwoSeconds() {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -68,7 +68,7 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
-    private static void waitFiveSeconds() {
+    public static void waitFiveSeconds() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -76,7 +76,7 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
-    private static void waitTenSeconds() {
+    public static void waitTenSeconds() {
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
@@ -84,7 +84,7 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
-    private static void waitSixtySeconds() {
+    public static void waitSixtySeconds() {
         try {
             Thread.sleep(60000);
         } catch (InterruptedException e) {
