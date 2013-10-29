@@ -16,7 +16,7 @@ runTest() {
 	fi
 }
 #Push the tests jar
-adb push nga-automation-android/bin/nga-automation-android.jar /data/local/tmp
+adb push bin/nga-automation-android.jar /data/local/tmp
 
 #Run some tests
 runTest "tests.navigation.CheckContentPresent"
