@@ -72,12 +72,12 @@ public class GlobalNav {
 
     public void clickSection(String sectionNameStr) throws UiObjectNotFoundException {
         if (sectionNameStr.equals("Home")){
-            new UiObject(new UiSelector().description(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).clickAndWaitForNewWindow();
             Utility.logMessage(sectionNameStr + " section opened");
         }
 
         else if (new UiObject(new UiSelector().description(sectionNameStr)).exists()) {
-            new UiObject(new UiSelector().description(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).clickAndWaitForNewWindow();
             Utility.logMessage(sectionNameStr + " section opened");
         }
         else {
@@ -103,7 +103,7 @@ public class GlobalNav {
                 new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().description(sectionNameStr));
             }
 
-            new UiObject(new UiSelector().description(sectionNameStr)).click();
+            new UiObject(new UiSelector().description(sectionNameStr)).clickAndWaitForNewWindow();
             Utility.logMessage(sectionNameStr + " section opened");
         }
     }
