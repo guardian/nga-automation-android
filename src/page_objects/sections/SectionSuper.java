@@ -25,6 +25,7 @@ import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.navigation.GlobalNav;
 import page_objects.pages.*;
+import page_objects.subsections.uknews.UKPolitics;
 
 import java.util.ArrayList;
 
@@ -79,6 +80,27 @@ public class SectionSuper extends GlobalNav {
     public LiveBlogPage navigateToAndOpenLiveBlog () throws UiObjectNotFoundException {
         navigateToAndOpenItemOfType(ItemTypes.Live);
         return new LiveBlogPage();
+    }
+
+    public LiveBlogPage navigateToAndOpenLiveBlogGuided() throws UiObjectNotFoundException {
+//        More specific version of navigateToAndOpenLiveBlog. Starts with business and politics sections to increase chance of immediately finding a liveblog
+
+        Business business = this.navigateToSectionBusiness();
+        if (!business.isLiveBlogPresent()){
+            UKPolitics politics = business.navigateToSubsectionUKPolitics();
+            if (politics.isLiveBlogPresent()){
+                politics.openFirstLiveblog();
+                return new LiveBlogPage();
+            }
+            else {
+                politics.navigateToAndOpenLiveBlog();
+                return new LiveBlogPage();
+            }
+        }
+        else{
+            business.openFirstLiveblog();
+            return new LiveBlogPage();
+        }
     }
 
     public VideoArticlePage navigateToAndOpenVideoArticle () throws UiObjectNotFoundException {

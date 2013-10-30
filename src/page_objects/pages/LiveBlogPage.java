@@ -48,7 +48,7 @@ public class LiveBlogPage extends ItemSuper {
         }
         else {
             Utility.logMessage("Refresh button NOT present");
-            return false;
+            throw new UiObjectNotFoundException("Refresh button not present");
         }
     }
 }

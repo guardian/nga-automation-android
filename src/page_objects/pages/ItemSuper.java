@@ -47,12 +47,14 @@ public class ItemSuper {
         UiDevice.getInstance().swipe(startX, y, endX, y, 50);
     }
 
-    public boolean isItemContentPresent(){
-        Boolean present = null;
+    public boolean isItemContentPresent() throws UiObjectNotFoundException{
         if (new UiObject(new UiSelector().className("android.webkit.WebView")).exists()){
-            present = true;
+            Utility.logMessage("Item content present");
+            return true;
         }
-        return present;
+        else{
+            throw new UiObjectNotFoundException("No content is present");
+        }
     }
 
     public void swipePerformanceCheck() {
@@ -99,7 +101,7 @@ public class ItemSuper {
         }
         else {
             Utility.logMessage("Back button NOT present");
-            return false;
+            throw new UiObjectNotFoundException("Back button not present");
         }
     }
 
@@ -110,7 +112,7 @@ public class ItemSuper {
         }
         else {
             Utility.logMessage("Share button NOT present");
-            return false;
+            throw new UiObjectNotFoundException("Share button not present");
         }
     }
 
@@ -124,7 +126,7 @@ public class ItemSuper {
         else {
             Utility.logMessage("Save page button NOT present");
             UiDevice.getInstance().pressBack();
-            return false;
+            throw new UiObjectNotFoundException("Save page button not present");
         }
     }
 
@@ -138,7 +140,7 @@ public class ItemSuper {
         else {
             Utility.logMessage("Text size button NOT present");
             UiDevice.getInstance().pressBack();
-            return false;
+            throw new UiObjectNotFoundException("Text size button not present");
         }
     }
 }

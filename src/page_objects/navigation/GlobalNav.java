@@ -60,47 +60,20 @@ public class GlobalNav {
         if (sectionName.parent != null && sectionName.parent.toString().equals(currentSection)){
             clickSection(sectionName.uiName);
 
-            int i = 0;
-
-            while (!sectionSuper.isAnyContentPresent() && i<10){
-                Utility.waitTwoSeconds();
-                i++;
-            }
-
-            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
-                throw new UiObjectNotFoundException("No content present");
-            }
+            Utility.waitForContentToBePresent();
         }
 
         else if (sectionName.parent != null && !sectionName.parent.toString().equals(currentSection)) {
             clickSection(sectionName.parent.uiName);
             clickSection(sectionName.uiName);
 
-            int i = 0;
-
-            while (!sectionSuper.isAnyContentPresent() && i<10){
-                Utility.waitTwoSeconds();
-                i++;
-            }
-
-            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
-                throw new UiObjectNotFoundException("No content present");
-            }
+            Utility.waitForContentToBePresent();
         }
         else {
             clickSection(sectionName.uiName);
             new UiObject(new UiSelector().descriptionStartsWith("Guardian,")).click();
 
-            int i = 0;
-
-            while (!sectionSuper.isAnyContentPresent() && i<10){
-                Utility.waitTwoSeconds();
-                i++;
-            }
-
-            if (i>=10 && !sectionSuper.isAnyContentPresent()) {
-                throw new UiObjectNotFoundException("No content present");
-            }
+            Utility.waitForContentToBePresent();
         }
     }
 
@@ -637,7 +610,7 @@ public class GlobalNav {
         }
         else {
             Utility.logMessage("Nav drawer button NOT present");
-            return false;
+            throw new UiObjectNotFoundException("Nav drawer button not present");
         }
     }
 
@@ -648,7 +621,7 @@ public class GlobalNav {
         }
         else {
             Utility.logMessage("Refresh button NOT present");
-            return false;
+            throw new UiObjectNotFoundException("Refresh button not present");
         }
     }
 
@@ -662,7 +635,7 @@ public class GlobalNav {
         else {
             Utility.logMessage("Settings button NOT present");
             UiDevice.getInstance().pressBack();
-            return false;
+            throw new UiObjectNotFoundException("Settings button not present");
         }
     }
 

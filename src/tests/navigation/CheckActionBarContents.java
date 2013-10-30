@@ -22,7 +22,6 @@ import page_objects.helpers.Utility;
 import page_objects.pages.ArticlePage;
 import page_objects.pages.HomePage;
 import page_objects.pages.LiveBlogPage;
-import page_objects.sections.Business;
 import page_objects.subsections.uknews.UKPolitics;
 
 /**
@@ -55,10 +54,8 @@ public class CheckActionBarContents extends UiAutomatorTestCase {
 //        LIVEBLOG
 
         article.pressBackButton();
-        LiveBlogPage liveBlog = politics.navigateToAndOpenLiveBlog();
+        LiveBlogPage liveBlog = politics.navigateToAndOpenLiveBlogGuided();
         assertTrue(liveBlog.checkActionBarContents());
-
-//        TODO: Optimise navigateToAndOpenLiveBlog method to use likely sections eg business, politics first
 
     }
 }

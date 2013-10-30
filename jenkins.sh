@@ -20,6 +20,8 @@ adb push bin/nga-automation-android.jar /data/local/tmp
 
 #Run some tests
 runTest "tests.navigation.CheckContentPresent"
+runTest "tests.navigation.CheckActionBarContents"
+runTest "tests.navigation.ArticleSwipePerformance
 
 
 

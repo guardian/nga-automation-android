@@ -39,14 +39,7 @@ public class Utility extends UiAutomatorTestCase {
 
     public static HomePage appStart () throws UiObjectNotFoundException {
 
-        SectionSuper sectionSuper = new SectionSuper();
-
-        int i = 0;
-
-        while (!sectionSuper.isAnyContentPresent() && i<10){
-            Utility.waitTwoSeconds();
-            i++;
-        }
+        waitForContentToBePresent();
         return new HomePage();
     }
 
@@ -99,6 +92,22 @@ public class Utility extends UiAutomatorTestCase {
             Thread.sleep(60000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void waitForContentToBePresent() throws UiObjectNotFoundException {
+
+        SectionSuper sectionSuper = new SectionSuper();
+
+        int i = 0;
+
+        while (!sectionSuper.isAnyContentPresent() && i<10){
+            Utility.waitTwoSeconds();
+            i++;
+        }
+
+        if (i>=10 && !sectionSuper.isAnyContentPresent()) {
+            throw new UiObjectNotFoundException("No content present");
         }
     }
 

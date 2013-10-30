@@ -42,9 +42,10 @@ public class ArticleSwipePerformance extends UiAutomatorTestCase {
 //        THEN: Item content is loaded
 //        AND: No crashes are reported
 
-        int i = 0;
+        int i = 1;
 
-        while (i<20){
+        while (i<21){
+            Utility.logMessage("Article"+i);
             assertTrue(articlePage.isItemContentPresent());
             articlePage.swipePerformanceCheck();
             i++;
