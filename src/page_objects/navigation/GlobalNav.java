@@ -50,8 +50,6 @@ public class GlobalNav {
 
     public void openSection(SectionNames sectionName) throws UiObjectNotFoundException {
 
-        SectionSuper sectionSuper = new SectionSuper();
-
         pressNavDrawerButton();
 
         String currentSection = getCapitalisedSectionTitle();

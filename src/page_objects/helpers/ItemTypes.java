@@ -30,5 +30,5 @@ public enum ItemTypes {
     Audio,
     Gallery,
     Live,
-    Comment;
+    Comment
 }

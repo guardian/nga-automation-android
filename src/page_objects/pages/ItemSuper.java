@@ -21,12 +21,7 @@ public class ItemSuper {
 //=====================================================
 
     public boolean checkActionBarContents() throws UiObjectNotFoundException {
-        if (isBackButtonPresent() && isShareButtonPresent() && isSavePageButtonPresent() && isTextSizeeButtonPresent()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return isBackButtonPresent() && isShareButtonPresent() && isSavePageButtonPresent() && isTextSizeeButtonPresent();
     }
 
 //=====================================================
