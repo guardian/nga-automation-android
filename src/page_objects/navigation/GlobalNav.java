@@ -35,6 +35,8 @@ import page_objects.subsections.travel.*;
 import page_objects.subsections.uknews.*;
 import page_objects.subsections.world.*;
 
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
@@ -53,7 +55,7 @@ public class GlobalNav {
         pressNavDrawerButton();
 
         String currentSection = getCapitalisedSectionTitle();
-        Utility.logMessage("Current section = " +currentSection);
+//        Utility.logMessage("Current section = " +currentSection);
 
         if (sectionName.parent != null && sectionName.parent.toString().equals(currentSection)){
             clickSection(sectionName.uiName);
@@ -531,6 +533,11 @@ public class GlobalNav {
         return new EnvironmentFood();
     }
 
+    public SectionSuper navigateToRandomSection (SectionNames randomSection) throws UiObjectNotFoundException {
+        openSection(randomSection);
+        return new SectionSuper();
+    }
+
 
 //=====================================================
 // Checks
@@ -576,6 +583,8 @@ public class GlobalNav {
         }
         return output;
     }
+
+
 
     public void swipeInNavDrawer () throws UiObjectNotFoundException {
         int deviceHeight = UiDevice.getInstance().getDisplayHeight();

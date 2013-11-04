@@ -24,6 +24,8 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import page_objects.pages.HomePage;
 import page_objects.sections.SectionSuper;
 
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
@@ -163,6 +165,11 @@ public class Utility extends UiAutomatorTestCase {
 //=====================================================
 // Actions
 //=====================================================
+
+    public static SectionNames randomSection(){
+        int pick = new Random().nextInt(SectionNames.values().length);
+        return SectionNames.values()[pick];
+    }
 
 
 }

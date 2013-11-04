@@ -23,8 +23,6 @@ import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
 import page_objects.sections.SectionSuper;
 
-import java.util.Random;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Jharewinton
@@ -34,32 +32,17 @@ import java.util.Random;
  */
 public class CheckNavigationPaths extends UiAutomatorTestCase {
 
-    public SectionNames randomSection(){
-        int pick = new Random().nextInt(SectionNames.values().length);
-        return SectionNames.values()[pick];
-    }
-
     public void testCheckNavigationProgress() throws UiObjectNotFoundException {
 
 //        GIVEN I have am using the global nav
 //        WHEN I navigate to a random section
 //        THEN that section is displayed
 
+        SectionNames randomSection = Utility.randomSection();
+
         HomePage homePage = Utility.appStart();
-
-        SectionNames selectedSection = randomSection();
-
-        SectionSuper randomSection = new SectionSuper();
-
-        String sectionNameLowerCase = selectedSection.uiName.toLowerCase();
-
-        homePage.openSection(selectedSection);
-
-        SectionSuper sectionSuper = new SectionSuper();
-
-        assertTrue(sectionSuper.getSectionTitle().equals(sectionNameLowerCase));
-
-//        TODO: Refactor for page object model
+        SectionSuper randomPage = homePage.navigateToRandomSection(randomSection);
+        assertTrue(randomPage.isSectionAsExpected(randomSection));
 
     }
 }

@@ -181,6 +181,18 @@ public class SectionSuper extends GlobalNav {
         return isItemOfTypePresent(ItemTypes.Comment);
     }
 
+    public boolean isSectionAsExpected (SectionNames randomSection) throws UiObjectNotFoundException {
+        Utility.logMessage("Intended section = " +randomSection.uiName);
+        Utility.logMessage("Actual section =" +this.getSectionTitle());
+
+        if (this.getSectionTitle().equals(randomSection.uiName.toLowerCase())){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public boolean isAnyContentPresent () throws UiObjectNotFoundException{
         boolean present = false;
         for (ItemTypes item : ItemTypes.values()){
