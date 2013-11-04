@@ -531,6 +531,7 @@ public class GlobalNav {
         return new EnvironmentFood();
     }
 
+
 //=====================================================
 // Checks
 //=====================================================
@@ -563,7 +564,16 @@ public class GlobalNav {
 
     public String getCapitalisedSectionTitle() throws UiObjectNotFoundException {
         String input = getSectionTitle();
-        String output = input.substring(0, 1).toUpperCase() + input.substring(1);
+        String output;
+        if (input.equals("uk")){
+            output = "UK";
+        }
+        else if (input.equals("us")){
+            output = "US";
+        }
+        else {
+            output = input.substring(0, 1).toUpperCase() + input.substring(1);
+        }
         return output;
     }
 

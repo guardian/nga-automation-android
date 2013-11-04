@@ -46,5 +46,7 @@ public class AssertCardImportance extends UiAutomatorTestCase {
 
         Utility.logMessage(String.valueOf(homePageList.getChildCount()));
 
+//        TODO: Make this work
+
     }
 }

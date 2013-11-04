@@ -32,7 +32,7 @@ import java.util.Random;
  * Time: 16:50
  * To change this template use File | Settings | File Templates.
  */
-public class CheckNavigationProgress extends UiAutomatorTestCase {
+public class CheckNavigationPaths extends UiAutomatorTestCase {
 
     public SectionNames randomSection(){
         int pick = new Random().nextInt(SectionNames.values().length);
@@ -49,13 +49,17 @@ public class CheckNavigationProgress extends UiAutomatorTestCase {
 
         SectionNames selectedSection = randomSection();
 
+        SectionSuper randomSection = new SectionSuper();
+
+        String sectionNameLowerCase = selectedSection.uiName.toLowerCase();
+
         homePage.openSection(selectedSection);
 
         SectionSuper sectionSuper = new SectionSuper();
 
-        assertTrue(sectionSuper.getCapitalisedSectionTitle().equals(selectedSection));
+        assertTrue(sectionSuper.getSectionTitle().equals(sectionNameLowerCase));
 
-//        TODO: Fix this so it works! Current assertion failure - possibly due to capitalisation?
+//        TODO: Refactor for page object model
 
     }
 }
