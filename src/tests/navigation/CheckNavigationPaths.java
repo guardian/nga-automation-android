@@ -42,7 +42,7 @@ public class CheckNavigationPaths extends UiAutomatorTestCase {
 
         HomePage homePage = Utility.appStart();
         SectionSuper randomPage = homePage.navigateToRandomSection(randomSection);
-        assertTrue(randomPage.isSectionAsExpected(randomSection));
+        assertTrue(randomPage.isSectionMatchingRandomSection(randomSection));
 
     }
 }

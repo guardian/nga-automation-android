@@ -584,8 +584,6 @@ public class GlobalNav {
         return output;
     }
 
-
-
     public void swipeInNavDrawer () throws UiObjectNotFoundException {
         int deviceHeight = UiDevice.getInstance().getDisplayHeight();
         int deviceWidth = UiDevice.getInstance().getDisplayWidth();
