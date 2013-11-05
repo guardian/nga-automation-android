@@ -569,6 +569,18 @@ public class GlobalNav {
         return sectionName;
     }
 
+    public String getLowerCaseSectionTitle () throws UiObjectNotFoundException {
+        String text = new UiObject(new UiSelector().description("pageTitle")).getText();
+        String sectionName;
+        if (text.equals("guardian")){
+            sectionName = "Home";
+        }
+        else{
+            sectionName = text;
+        }
+        return sectionName.toLowerCase();
+    }
+
     public String getCapitalisedSectionTitle() throws UiObjectNotFoundException {
         String input = getSectionTitle();
         String output;

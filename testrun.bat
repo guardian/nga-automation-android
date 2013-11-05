@@ -4,6 +4,6 @@ ant build
 
 adb push bin\nga-automation-android.jar /data/local/tmp
 
-adb shell "uiautomator runtest nga-automation-android.jar -c tests.navigation.CheckActionBarContents"
+adb shell "uiautomator runtest nga-automation-android.jar -c tests.navigation.CheckBackStack"
 
 pause
