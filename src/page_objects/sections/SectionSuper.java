@@ -185,7 +185,9 @@ public class SectionSuper extends GlobalNav {
         Utility.logMessage("Intended section = " +randomSection.uiName);
         Utility.logMessage("Actual section =" +this.getSectionTitle());
 
-        if (this.getSectionTitle().equals(randomSection.uiName.toLowerCase())){
+        String actualSectionTitle = this.getSectionTitle().toLowerCase();
+
+        if (actualSectionTitle.equals(randomSection.uiName.toLowerCase())){
             return true;
         }
         else {
