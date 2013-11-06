@@ -39,6 +39,16 @@ import java.util.ArrayList;
 public class SectionSuper extends GlobalNav {
 
 //=====================================================
+// Navigation
+//=====================================================
+
+    @Override
+    public void openSection(SectionNames sectionName) throws UiObjectNotFoundException{
+        pressNavDrawerButton();
+        super.openSection(sectionName);
+    }
+
+//=====================================================
 // Actions
 //=====================================================
 

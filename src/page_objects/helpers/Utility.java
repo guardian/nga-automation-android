@@ -166,9 +166,34 @@ public class Utility extends UiAutomatorTestCase {
 // Actions
 //=====================================================
 
-    public static SectionNames randomSection(){
-        int pick = new Random().nextInt(SectionNames.values().length);
-        return SectionNames.values()[pick];
+    public static SectionNames generateRandomSection(){
+        SectionNames section = SectionNames.Home;
+
+        while (section.equals(SectionNames.Home)){
+            int pick = new Random().nextInt(SectionNames.values().length);
+            section = SectionNames.values()[pick];
+        }
+        return section;
+    }
+
+    public static SectionNames generateRandomFrontSection(){
+        SectionNames section = SectionNames.Home;
+
+        while (section.equals(SectionNames.Home) || (section.parent != null)){
+            int pick = new Random().nextInt(SectionNames.values().length);
+            section = SectionNames.values()[pick];
+        }
+        return section;
+    }
+
+    public static SectionNames generateRandomListSection(){
+        SectionNames section = SectionNames.Home;
+
+        while (section.equals(SectionNames.Home) || section.parent == null){
+            int pick = new Random().nextInt(SectionNames.values().length);
+            section = SectionNames.values()[pick];
+        }
+        return section;
     }
 
 

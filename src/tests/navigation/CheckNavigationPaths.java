@@ -38,10 +38,10 @@ public class CheckNavigationPaths extends UiAutomatorTestCase {
 //        WHEN I navigate to a random section
 //        THEN that section is displayed
 
-        SectionNames randomSection = Utility.randomSection();
+        SectionNames randomSection = Utility.generateRandomSection();
 
         HomePage homePage = Utility.appStart();
-        SectionSuper randomPage = homePage.navigateToRandomSection(randomSection);
+        SectionSuper randomPage = homePage.navigateToRandomSection(Utility.generateRandomSection());
         assertTrue(randomPage.isSectionMatchingRandomSection(randomSection));
 
     }

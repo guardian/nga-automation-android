@@ -52,8 +52,6 @@ public class GlobalNav {
 
     public void openSection(SectionNames sectionName) throws UiObjectNotFoundException {
 
-        pressNavDrawerButton();
-
         String currentSection = getCapitalisedSectionTitle();
 //        Utility.logMessage("Current section = " +currentSection);
 
@@ -596,13 +594,42 @@ public class GlobalNav {
         return output;
     }
 
-    public void swipeInNavDrawer () throws UiObjectNotFoundException {
+    public GlobalNav swipeInNavDrawer () throws UiObjectNotFoundException {
         int deviceHeight = UiDevice.getInstance().getDisplayHeight();
         int deviceWidth = UiDevice.getInstance().getDisplayWidth();
         int yPosition = deviceHeight/2;
         int xStartPosition = 0;
         int xStopPosition =  deviceWidth/2;
-        UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 100);
+        UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 25);
+        Utility.waitOneSeconds();
+        return new GlobalNav();
+    }
+
+    public void swipeAwayNavDrawer () throws UiObjectNotFoundException {
+        int deviceHeight = UiDevice.getInstance().getDisplayHeight();
+        int deviceWidth = UiDevice.getInstance().getDisplayWidth();
+        int yPosition = deviceHeight/2;
+        int xStartPosition = deviceWidth/2;
+        int xStopPosition =  0;
+        UiDevice.getInstance().swipe(xStartPosition, yPosition, xStopPosition, yPosition, 25);
+        Utility.waitOneSeconds();
+    }
+
+    public String getCellText (UiObject object) throws UiObjectNotFoundException {
+        String string = object.getText().toLowerCase();
+        return string;
+    }
+
+    public String getFirstThreeCellsText() throws UiObjectNotFoundException {
+        UiObject firstCell = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(0)).getChild(new UiSelector().className("android.widget.TextView"));
+        UiObject secondCell = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(1)).getChild(new UiSelector().className("android.widget.TextView"));
+        UiObject thirdCell = new UiObject(new UiSelector().className("android.widget.RelativeLayout").index(2)).getChild(new UiSelector().className("android.widget.TextView"));
+
+        String firstText = getCellText(firstCell);
+        String secondText = getCellText(secondCell);
+        String thirdText = getCellText(thirdCell);
+
+        return firstText + ", " + secondText + ", " + thirdText;
     }
 
 //=====================================================
