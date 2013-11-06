@@ -32,9 +32,9 @@ import page_objects.subsections.sport.SportCricket;
  * Time: 16:27
  * To change this template use File | Settings | File Templates.
  */
-public class CheckBackStack extends UiAutomatorTestCase {
+public class CheckBackStackBetweenFrontsListsArticles extends UiAutomatorTestCase {
 
-    public void testCheckBackStack() throws UiObjectNotFoundException {
+    public void testCheckBackStackBetweenFrontsListsArticles() throws UiObjectNotFoundException {
 
 //        GIVEN I have navigated from the homepage, to a front, then a list, then an article
 //        WHEN I press the device back button
