@@ -136,6 +136,7 @@ public class SectionSuper extends GlobalNav {
     public void openFirstItemOfType(ItemTypes itemTypes) throws UiObjectNotFoundException {
         new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().descriptionStartsWith(itemTypes.toString()));
         new UiObject(new UiSelector().descriptionStartsWith(itemTypes.toString())).click();
+        Utility.waitTwoSeconds();
     }
 
     public void navigateToAndOpenItemOfType (ItemTypes itemTypes) throws UiObjectNotFoundException{
@@ -216,5 +217,6 @@ public class SectionSuper extends GlobalNav {
         Utility.logMessage("Content present = "+present);
         return present;
     }
+
 
 }
