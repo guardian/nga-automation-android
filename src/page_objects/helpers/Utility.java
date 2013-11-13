@@ -16,6 +16,7 @@
 
 package page_objects.helpers;
 
+import android.os.RemoteException;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
@@ -58,40 +59,32 @@ public class Utility extends UiAutomatorTestCase {
     }
 
     public static void waitOneSeconds() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForTime(1);
     }
 
     public static void waitTwoSeconds() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForTime(2);
     }
 
     public static void waitFiveSeconds() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForTime(5);
     }
 
     public static void waitTenSeconds() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForTime(10);
     }
 
     public static void waitSixtySeconds() {
+        waitForTime(60);
+    }
+
+    public static void waitTwoMinutes() {
+        waitForTime(120);
+    }
+
+    public static void waitForTime (int timeInSecs) {
         try {
-            Thread.sleep(60000);
+            Thread.sleep(timeInSecs*1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -162,6 +155,33 @@ public class Utility extends UiAutomatorTestCase {
         }
     }
 
+    public static String getOrientation(){
+        int orientation = UiDevice.getInstance().getDisplayRotation();
+        String state = null;
+
+        if (orientation<90 || orientation>=180 && orientation<270){
+            state="vertical";
+        }
+        if (orientation>=90 && orientation<180 || orientation>270){
+            state="horizontal";
+        }
+        return state;
+    }
+
+    public static void changeOrientation() throws RemoteException {
+        String state = getOrientation();
+        if (state.equals("vertical")){
+            UiDevice.getInstance().setOrientationRight();
+        }
+        else {
+            UiDevice.getInstance().setOrientationLeft();
+        }
+    }
+
+    public static void changeOrientationNatural() throws RemoteException {
+        UiDevice.getInstance().setOrientationNatural();
+    }
+
 //=====================================================
 // Actions
 //=====================================================
@@ -196,5 +216,16 @@ public class Utility extends UiAutomatorTestCase {
         return section;
     }
 
+    public static void backgroundApp() throws UiObjectNotFoundException{
+        UiDevice.getInstance().pressHome();
+        Utility.waitTwoSeconds();
+    }
+
+    public static void openAppFromRecentApps() throws UiObjectNotFoundException, RemoteException {
+        UiDevice.getInstance().pressRecentApps();
+        Utility.waitTwoSeconds();
+        new UiObject(new UiSelector().className("android.widget.FrameLayout").description("Guardian")).click();
+        Utility.waitTwoSeconds();
+    }
 
 }
