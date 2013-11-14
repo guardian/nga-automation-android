@@ -41,6 +41,7 @@ public class Utility extends UiAutomatorTestCase {
 
     public static HomePage appStart () throws UiObjectNotFoundException {
 
+        clearBetaLaunchMessage();
         waitForContentToBePresent();
         return new HomePage();
     }
@@ -194,6 +195,12 @@ public class Utility extends UiAutomatorTestCase {
             section = SectionNames.values()[pick];
         }
         return section;
+    }
+
+    public static void clearBetaLaunchMessage() throws UiObjectNotFoundException {
+        if (new UiObject(new UiSelector().text("Next-gen apps beta programme")).exists() && new UiObject(new UiSelector().className("android.widget.Button").text("OK")).exists()){
+            new UiObject(new UiSelector().className("android.widget.Button").text("OK")).click();
+        }
     }
 
 
