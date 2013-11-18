@@ -55,6 +55,8 @@ public class PauseOnHomePageWithDifferentPolling extends UiAutomatorTestCase {
         HomePage homePage2 = settings1.pressNavigateUpButton();
         Utility.waitForTime(720);
 
+//        TODO: Refactor for proper page object implementation
+
 
 
     }
