@@ -25,9 +25,6 @@ import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.navigation.GlobalNav;
 import page_objects.pages.*;
-import page_objects.subsections.uknews.UKPolitics;
-
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,9 +40,10 @@ public class SectionSuper extends GlobalNav {
 //=====================================================
 
     @Override
-    public void openSection(SectionNames sectionName) throws UiObjectNotFoundException{
+    public SectionSuper openSection(SectionNames sectionName) throws UiObjectNotFoundException{
         pressNavDrawerButton();
         super.openSection(sectionName);
+        return new SectionSuper();
     }
 
 //=====================================================
@@ -95,20 +93,20 @@ public class SectionSuper extends GlobalNav {
     public LiveBlogPage navigateToAndOpenLiveBlogGuided() throws UiObjectNotFoundException {
 //        More specific version of navigateToAndOpenLiveBlog. Starts with business and politics sections to increase chance of immediately finding a liveblog
 
-        Business business = this.navigateToSectionBusiness();
-        if (!business.isLiveBlogPresent()){
-            UKPolitics politics = business.navigateToSubsectionUKPolitics();
-            if (politics.isLiveBlogPresent()){
-                politics.openFirstLiveblog();
+        SectionSuper economy = this.openSection(SectionNames.Economy);
+        if (!economy.isLiveBlogPresent()){
+            SectionSuper uk = economy.openSection(SectionNames.UK);
+            if (uk.isLiveBlogPresent()){
+                uk.openFirstLiveblog();
                 return new LiveBlogPage();
             }
             else {
-                politics.navigateToAndOpenLiveBlog();
+                uk.navigateToAndOpenLiveBlog();
                 return new LiveBlogPage();
             }
         }
         else{
-            business.openFirstLiveblog();
+            economy.openFirstLiveblog();
             return new LiveBlogPage();
         }
     }

@@ -18,10 +18,10 @@ package tests.navigation;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.pages.HomePage;
-import page_objects.sections.Sport;
-import page_objects.subsections.sport.SportCricket;
+import page_objects.sections.SectionSuper;
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,10 +41,10 @@ public class CheckContentPresent extends UiAutomatorTestCase{
         HomePage homePage = Utility.appStart();
         assertTrue(homePage.isAnyContentPresent());
 
-        Sport sport = homePage.navigateToSectionSport();
+        SectionSuper sport = homePage.openSection(SectionNames.Sport);
         assertTrue(sport.isAnyContentPresent());
 
-        SportCricket cricket = sport.navigateToSubsectionSportCricket();
+        SectionSuper cricket = sport.openSection(SectionNames.Cricket);
         assertTrue(cricket.isAnyContentPresent());
 
     }

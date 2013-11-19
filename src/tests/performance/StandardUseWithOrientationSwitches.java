@@ -19,13 +19,11 @@ package tests.performance;
 import android.os.RemoteException;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.pages.ArticlePage;
 import page_objects.pages.HomePage;
-import page_objects.pages.LiveBlogPage;
-import page_objects.sections.Business;
 import page_objects.sections.SectionSuper;
-import page_objects.subsections.business.BusinessEuro;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,7 +60,7 @@ public class StandardUseWithOrientationSwitches extends UiAutomatorTestCase {
         article3.pressBackButton();
         Utility.changeOrientationNatural();
 
-        HomePage homePage2 = list.navigateToSectionHome();
+        SectionSuper homePage2 = list.openSection(SectionNames.Home);
 
     }
 

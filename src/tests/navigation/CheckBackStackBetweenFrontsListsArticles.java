@@ -19,11 +19,11 @@ package tests.navigation;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import page_objects.helpers.SectionNames;
 import page_objects.helpers.Utility;
 import page_objects.pages.ArticlePage;
 import page_objects.pages.HomePage;
-import page_objects.sections.Sport;
-import page_objects.subsections.sport.SportCricket;
+import page_objects.sections.SectionSuper;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,8 +43,8 @@ public class CheckBackStackBetweenFrontsListsArticles extends UiAutomatorTestCas
 //        THEN the homepage
 
         HomePage homePage = Utility.appStart();
-        Sport sport = homePage.navigateToSectionSport();
-        SportCricket cricket = sport.navigateToSubsectionSportCricket();
+        SectionSuper sport = homePage.openSection(SectionNames.Sport);
+        SectionSuper cricket = sport.openSection(SectionNames.Cricket);
         ArticlePage article = cricket.openFirstStandardArticle();
 
         UiDevice.getInstance().pressBack();
@@ -59,7 +59,7 @@ public class CheckBackStackBetweenFrontsListsArticles extends UiAutomatorTestCas
 //        THEN I am taken to the list
 //        THEN the homepage
 
-        SportCricket cricket2 = homePage.navigateToSubsectionSportCricket();
+        SectionSuper cricket2 = homePage.openSection(SectionNames.Cricket);
         ArticlePage article2 = cricket.openFirstStandardArticle();
 
         UiDevice.getInstance().pressBack();
